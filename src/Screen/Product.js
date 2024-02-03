@@ -2,8 +2,11 @@ import React from 'react'
 import Header from '../Component/Header'
 import { Link } from 'react-router-dom'
 import { IMAGE } from '../Assets/Images'
-
+import ReactGA from "react-ga"
 export default function Product() {
+    React.useEffect(()=>{
+        ReactGA.pageview(window.location.pathname + window.location.search);
+    },[])
     return (
         <div
             className='w-full justify-start items-center'

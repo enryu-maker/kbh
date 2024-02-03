@@ -4,8 +4,13 @@ import { Carousel } from 'react-responsive-carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { IMAGE } from '../Assets/Images';
 import { useNavigate } from 'react-router-dom';
+import ReactGA from "react-ga"
+
 export default function Home() {
     const navigate = useNavigate()
+    React.useEffect(()=>{
+        ReactGA.pageview(window.location.pathname + window.location.search);
+    },[])
     return (
         <div
             className='w-full justify-start items-center'

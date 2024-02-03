@@ -6,6 +6,8 @@ import About from '../Screen/About'
 import Who from '../Screen/Who'
 import Gallery from '../Screen/Gallery'
 import Contact from '../Screen/Contact'
+
+
 export default function Index() {
   return (
     <Routes>
