@@ -3,15 +3,19 @@ import { IMAGE } from '../Assets/Images'
 import { Link } from 'react-router-dom'
 export default function Footer() {
     return (
-        <div className='bg-white flex flex-col justify-center w-full items-center'  >
+        <div className='bg-white flex flex-col justify-center w-full items-center space-y-2'  >
             <div
-                className=' flex lg:flex-row flex-col justify-center lg:justify-evenly items-center lg:items-start pt-5 w-full'
+                className=' flex lg:flex-row flex-col justify-center lg:justify-evenly items-center lg:items-start pt-5 w-full space-y-2'
             >
-                <img
-                    className='h-[150px] w-[150px]'
-                    src={IMAGE.icon}
-                />
-                <div className='flex flex-col ' >
+                <div className='flex flex-col w-[88%]  justify-center lg:w-[21%] ' >
+                    <img
+                        alt='banner'
+
+                        className='h-[110px] w-[110px] self-center lg:h-[150px] lg:w-[150px]'
+                        src={IMAGE.icon}
+                    />
+                </div>
+                <div className='flex flex-col w-[88%] justify-center lg:w-[21%] ' >
                     <p className=' font-semibold text-xl tracking-widest'>
                         Site Maps
                     </p>
@@ -46,7 +50,7 @@ export default function Footer() {
                         CONTACT US
                     </Link>
                 </div>
-                <div className='flex flex-col' >
+                <div className='flex flex-col w-[88%] justify-center lg:w-[21%] ' >
                     <p className=' font-semibold text-xl tracking-widest'
                     >
                         Contact Info
@@ -68,7 +72,7 @@ export default function Footer() {
                         Email : jillhakrishink@gmail.com
                     </p>
                 </div>
-                <div className='flex flex-col' >
+                <div className='flex flex-col w-[88%] justify-center lg:w-[21%] ' >
                     <p className=' font-semibold text-xl tracking-widest'>
                         Office Address/Fax No.
                     </p>
@@ -81,11 +85,12 @@ export default function Footer() {
                     </p>
                 </div>
             </div >
-            <p className='text-sm tracking-widest'>
+            <p className='text-sm  font-bold tracking-widest pt-5'>
                 &copy; {new Date().getFullYear()} KBH Jillha Krushi Sangh Nashik
             </p>
             <img
-                className='w-[35%] h-auto'
+                alt='nerdtech'
+                className='lg:w-[35%] w-full h-auto'
                 src={IMAGE.footer}
             />
         </div>

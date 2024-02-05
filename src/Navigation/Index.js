@@ -6,10 +6,14 @@ import About from '../Screen/About'
 import Who from '../Screen/Who'
 import Gallery from '../Screen/Gallery'
 import Contact from '../Screen/Contact'
+import ProductInfo from '../Screen/ProductInfo'
 
 
 export default function Index() {
   return (
+    <div
+    className='mt-[70px] lg:mt-0'
+    >
     <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/product' element={<Product/>}/>
@@ -17,6 +21,8 @@ export default function Index() {
         <Route path='/who' element={<Who/>}/>
         <Route path='/gallery' element={<Gallery/>}/>
         <Route path='/contact' element={<Contact/>}/>
+        <Route path='/info' element={<ProductInfo/>}/>
     </Routes>
+    </div>
   )
 }

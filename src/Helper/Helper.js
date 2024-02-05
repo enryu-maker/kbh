@@ -1,4 +1,5 @@
 export const URLS = {
-    production : "",
-    testing: "http://64.23.160.95/"
+    production : "https://api-nerdtech.kbhjillhakrushisangh.org/",
+    testing: "https://api-nerdtech.kbhjillhakrushisangh.org/",
+    imageurl:"https://api-nerdtech.kbhjillhakrushisangh.org",
 }

@@ -13,6 +13,8 @@ export default function Contact() {
         >
             <img
                 src={IMAGE.header}
+                alt='head'
+                className='h-[200px] lg:h-auto w-auto object-cover lg:object-contain'
             />
             <div
                 className=' pl-10 flex self-center pt-5 font-Poppins items-center text-sm space-x-2'>
@@ -41,37 +43,38 @@ export default function Contact() {
                 className='flex flex-col justify-center items-center'
             >
                 <div
-                    className='border-2 flex items-center justify-evenly w-[45%] py-2 h-[50px] self-start ml-[6%] my-5'
+                    className='border-2  w-[88%] self-center flex items-center justify-between lg:justify-evenly space-x-1 lg:w-[45%] py-2 lg:h-[50px] lg:self-start lg:ml-[6%] my-5'
                 >
                     <MdOutlineWatchLater
                         className=' text-primary'
                         size={40}
                     />
                     <h1
-                        className='font-Poppins text-primary font-black text-base'
+                        className='font-Poppins text-primary text-justify font-black text-sm lg:text-base'
                     >
                         Working Hours: 09:00 hours to 17:30 hours (Saturday and Sunday Holidays)
                     </h1>
 
                 </div>
                 <div
-                    className=' w-[88%] border-2 flex justify-evenly py-5 items-start h-[200px] my-5 '
+                    className=' w-[88%] border-2 flex flex-col lg:flex-row justify-evenly py-5 items-start lg:h-[200px] space-y-2 lg:space-y-0 px-2 lg:px-0 my-5 '
                 >
-                    <div className='w-[30%]'>
+                    <div className='lg:w-[30%]'>
                         <h1 className=' text-base font-Poppins font-semibold text-justify' >
                             Official website to get info of products , board members etc.
                         </h1>
                         <Link
                             to={'/'}
+                            className=' text-primary'
                         >
                             https://www.kbhjillhakrushisangh.org
                         </Link>
                     </div>
 
                     <div
-                        className='h-[150px] w-[1px] bg-primary'
+                        className='lg:h-[150px] lg:w-[1px] h-[1px] w-full bg-primary'
                     />
-                    <div className='w-[30%]'>
+                    <div className='lg:w-[30%]'>
                         <h1 className=' text-base font-Poppins font-semibold text-justify' >
                             Queries Related to Products/ Brands or for Engagement with KBH Jillha Krushi Sangh
                         </h1>
@@ -89,9 +92,9 @@ export default function Contact() {
                         </p>
                     </div>
                     <div
-                        className='h-[150px] w-[1px] bg-primary'
+                        className='lg:h-[150px] lg:w-[1px] h-[1px] w-full bg-primary'
                     />
-                    <div className='w-[30%]'>
+                    <div className='lg:w-[30%]'>
                         <h1 className=' text-base font-Poppins font-semibold text-justify' >
                             Office Address/Fax No.
                         </h1>

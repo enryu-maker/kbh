@@ -5,7 +5,6 @@ export const getProducts = (setLoading) => {
         setLoading(true);
         try {
             let response = await axios.get(URLS.testing + `products/`);
-            console.log(response.data)
             dispatch({
                 type: 'PRODUCTS',
                 payload: response.data,
@@ -23,7 +22,6 @@ export const getGallery = (setLoading) => {
         setLoading(true);
         try {
             let response = await axios.get(URLS.testing + `gallery/`);
-            console.log(response.data)
             dispatch({
                 type: 'GALLERY',
                 payload: response.data,
@@ -41,7 +39,6 @@ export const getAbout = (setLoading) => {
         setLoading(true);
         try {
             let response = await axios.get(URLS.testing + `aboutus/`);
-            console.log(response.data)
             dispatch({
                 type: 'ABOUT',
                 payload: response.data,
@@ -59,7 +56,6 @@ export const getCompany = (setLoading) => {
         setLoading(true);
         try {
             let response = await axios.get(URLS.testing + `company/`);
-            console.log(response.data)
             dispatch({
                 type: 'COMPANY',
                 payload: response.data,
@@ -77,9 +73,24 @@ export const getBanner = (setLoading) => {
         setLoading(true);
         try {
             let response = await axios.get(URLS.testing + `banner/`);
-            console.log(response.data)
             dispatch({
                 type: 'BANNER',
+                payload: response.data,
+            })
+            setLoading(false);
+        } catch (error) {
+            console.log(error);
+            setLoading(false);
+        }
+    }
+}
+export const getHeaderLogo = (setLoading) => {
+    return async dispatch => {
+        setLoading(true);
+        try {
+            let response = await axios.get(URLS.testing + `banner/logo/`);
+            dispatch({
+                type: 'LOGO',
                 payload: response.data,
             })
             setLoading(false);
@@ -95,9 +106,24 @@ export const getCommunity = (setLoading) => {
         setLoading(true);
         try {
             let response = await axios.get(URLS.testing + `person/desg/`);
-            console.log(response.data)
             dispatch({
                 type: 'COMMUNITY',
+                payload: response.data,
+            })
+            setLoading(false);
+        } catch (error) {
+            console.log(error);
+            setLoading(false);
+        }
+    }
+}
+export const getHomeProduct = (setLoading) => {
+    return async dispatch => {
+        setLoading(true);
+        try {
+            let response = await axios.get(URLS.testing + `products/getproductshome/`);
+            dispatch({
+                type: 'HOME',
                 payload: response.data,
             })
             setLoading(false);

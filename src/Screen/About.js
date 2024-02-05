@@ -2,17 +2,22 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { IMAGE } from '../Assets/Images'
 import ReactGA from "react-ga"
+import { useSelector } from 'react-redux'
+import { URLS } from '../Helper/Helper'
 
 export default function About() {
     React.useEffect(() => {
         ReactGA.pageview(window.location.pathname + window.location.search);
     }, [])
+    const about = useSelector(state => state.Reducers.about)
     return (
         <div
             className='w-full justify-start bg-background items-center'
         >
             <img
                 src={IMAGE.header}
+                alt='head'
+                className='h-[200px] lg:h-auto w-auto object-cover lg:object-contain'
             />
             <div
                 className=' pl-10 flex self-center mt-5 font-Poppins items-center text-sm space-x-2'>
@@ -38,20 +43,27 @@ export default function About() {
                 </h1>
             </div>
             <div
-                className='flex self-center py-5  justify-around items-start'>
-                <div className='h-[500px] w-[30%] border-2 p-2'>
-                    <img
-                    className='h-full w-full'
-                    src={IMAGE.advhay}
-                    />
-                </div>
-                <p
-                    className='w-[55%]'
-                >
-                    lorem  ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed
-                    iaculis nulla. Nunc eget odio at sem convallis lo
-
-                </p>
+                className='flex self-center py-5 flex-col lg:flex-row justify-evenly items-center  lg:justify-around lg:items-start'>
+                {
+                    about?.map((item, index) => (
+                        <>
+                            <div
+                                key={index}
+                                className='lg:h-[500px] h-[400px] lg:w-[30%] w-[88%] border-2 p-2'>
+                                <img
+                                    className='h-full w-full'
+                                    src={URLS.imageurl + item?.image}
+                                    alt='aboutimage'
+                                />
+                            </div>
+                            <p
+                                className='lg:w-[55%] w-[88%] text-justify mt-2'
+                            >
+                                {item?.description}
+                            </p>
+                        </>
+                    ))
+                }
             </div>
         </div>
     )

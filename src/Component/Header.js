@@ -2,12 +2,16 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { IMAGE } from '../Assets/Images'
 import { RiTwitterXLine } from "react-icons/ri";
+import { IoIosMenu } from "react-icons/io";
 import { AiOutlineInstagram, AiOutlineFacebook, AiOutlineYoutube } from "react-icons/ai";
+import { URLS } from '../Helper/Helper';
+import { useSelector } from 'react-redux';
 export default function Header() {
     const [isFixed, setIsFixed] = React.useState(false);
+    const logo = useSelector(state => state.Reducers.logo)
     React.useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 0) { // Adjust the scroll threshold as needed
+            if (window.scrollY > 180) { // Adjust the scroll threshold as needed
                 setIsFixed(true);
             } else {
                 setIsFixed(false);
@@ -21,7 +25,7 @@ export default function Header() {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-
+    const [show, setShow] = React.useState(false)
     return (
         <div>
             {/* Small Header */}
@@ -56,6 +60,7 @@ export default function Header() {
                     className='flex justify-start items-center '
                 >
                     <img
+                                alt='icon'
                         className=' h-[130px] w-[130px]'
                         src={IMAGE.icon}
                     />
@@ -78,10 +83,16 @@ export default function Header() {
                 <div
                     className='flex justify-evenly items-center w-[35%]'
                 >
-                    <img
-                        className=' h-[100px] w-[100px]'
-                        src={IMAGE.year}
-                    />
+                    {
+                        logo?.map((item, index) => (
+                            <img
+                                key={index}
+                                alt='logo'
+                                className=' h-[100px] w-[100px]'
+                                src={URLS.imageurl + item?.image}
+                            />
+                        ))
+                    }
                 </div>
 
 
@@ -122,6 +133,85 @@ export default function Header() {
                         CONTACT US
                     </Link>
                 </div>
+            </div>
+            {/* resposive header */}
+            <div
+                className='lg:hidden transition duration-2000 ease-linear h-auto bg-white w-full fixed z-50 top-0 flex flex-col justify-center  items-center'
+            >
+                <div
+                    className='w-full flex justify-between items-center p-2'
+                >
+                    <img
+                        className='h-[55px] w-[55px]'
+                        src={IMAGE.icon}
+                        alt='banner'
+
+                    />
+                    <div
+                        className='flex flex-col justify-center item-center w-[55%]'>
+                        <h1
+                            className='text-[8px] font-Poppins'
+                        >
+                            कर्मवीर भाऊसाहेब हिरे नाशिक जिल्ला
+                            कृषी औद्योगिक सहकारी संघ लिमिटेड नाशिक
+                        </h1>
+                        <h1
+                            className=' capitalize text-[8px] font-Poppins'
+                        >
+                            KARMAVEER BHAUSAHEB HIRAY NASHIK JILLHA <br />
+                            KRISHI AUDYOGIK SAHAKARI SANGH LTD NASHIK
+                        </h1>
+                    </div>
+                    <IoIosMenu
+                        className=' text-primary'
+                        onClick={() => {
+                            setShow(!show)
+                        }}
+                        size={40}
+                    />
+                </div>
+                {
+                    show ?
+                        <div className="w-full flex  flex-col bg-background px-5 py-2 space-y-2">
+                            <Link
+                                to={"/"}
+                                onClick={() => setShow(false)}
+                                className=' text-black font-Poppins text-sm tracking-widest'
+                            >
+                                HOME
+                            </Link>
+                            <Link
+                                to={'/product'}
+                                onClick={() => setShow(false)}
+                                className=' text-black font-Poppins text-sm tracking-widest'
+                            >
+                                PRODUCTS
+                            </Link>
+                            <Link
+                                to={'/about'}
+                                onClick={() => setShow(false)}
+                                className=' text-black font-Poppins text-sm tracking-widest'
+                            >
+                                ABOUT US
+                            </Link>
+                            <Link
+                                to={"/gallery"}
+                                onClick={() => setShow(false)}
+                                className=' text-black font-Poppins text-sm tracking-widest'
+                            >
+                                GALLERY
+                            </Link>
+                            <Link
+                                to={"/contact"}
+                                onClick={() => setShow(false)}
+                                className=' text-black font-Poppins text-sm tracking-widest'
+                            >
+                                CONTACT US
+                            </Link>
+                        </div>
+                        :
+                        null
+                }
             </div>
         </div>
     )
