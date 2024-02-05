@@ -5,6 +5,10 @@ import ReactGA from "react-ga"
 import { MdOutlineWatchLater } from "react-icons/md";
 export default function Contact() {
     React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          })
         ReactGA.pageview(window.location.pathname + window.location.search);
     }, [])
     return (
@@ -17,7 +21,7 @@ export default function Contact() {
                 className='h-[200px] lg:h-auto w-auto object-cover lg:object-contain'
             />
             <div
-                className=' pl-10 flex self-center pt-5 font-Poppins items-center text-sm space-x-2'>
+        className='pl-5 lg:pl-10 flex self-center py-5 font-Poppins items-center text-sm space-x-2'>
                 <Link
                     className=' hover:text-primary'
                     to={'/'}

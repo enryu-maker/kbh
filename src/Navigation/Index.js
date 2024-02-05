@@ -21,7 +21,7 @@ export default function Index() {
         <Route path='/who' element={<Who/>}/>
         <Route path='/gallery' element={<Gallery/>}/>
         <Route path='/contact' element={<Contact/>}/>
-        <Route path='/info' element={<ProductInfo/>}/>
+        <Route path='/info/:id' element={<ProductInfo/>}/>
     </Routes>
     </div>
   )

@@ -10,6 +10,10 @@ import { URLS } from '../Helper/Helper';
 export default function Home() {
     const navigate = useNavigate()
     React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          })
         ReactGA.pageview(window.location.pathname + window.location.search);
     }, [])
     const company = useSelector(state => state.Reducers.company)
@@ -125,7 +129,11 @@ export default function Home() {
                             <button
                                 key={index}
                                 onClick={()=>{
-                                    navigate("/info")
+                                    navigate(`/info/${item?.product_name}`,{
+                                        state:{
+                                            productInfo: item
+                                            }
+                                    })
                                 }}
                                 className='flex flex-col w-[50%] lg:w-auto justify-center items-center my-1'
                             >

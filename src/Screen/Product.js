@@ -5,6 +5,10 @@ import ReactGA from "react-ga"
 import { useSelector } from 'react-redux'
 export default function Product() {
     React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          })
         ReactGA.pageview(window.location.pathname + window.location.search);
     }, [])
     const navigate = useNavigate()
@@ -19,7 +23,7 @@ export default function Product() {
                 className='h-[200px] lg:h-auto w-auto object-cover lg:object-contain'
             />
             <div
-                className=' pl-10 flex self-center mt-5 font-Poppins items-center text-sm space-x-2'>
+        className='pl-5 lg:pl-10 flex self-center py-5 font-Poppins items-center text-sm space-x-2'>
                 <Link
                     className=' hover:text-primary'
                     to={'/'}
@@ -57,7 +61,11 @@ export default function Product() {
                                         <button
                                             key={index}
                                             onClick={()=>{
-                                                navigate("/info")
+                                                navigate(`/info/${item?.product_name}`,{
+                                                    state:{
+                                                        productInfo: item
+                                                        }
+                                                })
                                             }}
                                             className='flex flex-col w-[50%] lg:w-auto justify-center items-center my-1'
                                         >
