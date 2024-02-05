@@ -1,21 +1,24 @@
 import React from 'react'
-import Header from '../Component/Header'
 import { Carousel } from 'react-responsive-carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { IMAGE } from '../Assets/Images';
 import { useNavigate } from 'react-router-dom';
 import ReactGA from "react-ga"
+import CustomeCarousel from '../Component/CustomeCarousel';
+import { useSelector } from 'react-redux';
 
 export default function Home() {
     const navigate = useNavigate()
-    React.useEffect(()=>{
+    React.useEffect(() => {
         ReactGA.pageview(window.location.pathname + window.location.search);
-    },[])
+    }, [])
+    const company = useSelector(state=>state.Reducers.company)
+    console.log(company)
+    const data = [1,2,3,4]
     return (
         <div
             className='w-full justify-start items-center'
         >
-            <Header />
             <Carousel
                 infiniteLoop
                 autoPlay
@@ -33,19 +36,19 @@ export default function Home() {
                 <div className='w-full h-[500px] bg-yellow-300' />
             </Carousel>
             <div
-                className='w-full flex h-[600px] justify-between items-start'>
+                className='w-full flex lg:h-[600px] lg:flex-row flex-col justify-center lg:justify-between items-start'>
                 <div
-                    className='h-[100%] w-[45%]  justify-around items-center flex flex-wrap'
+                    className='h-[100%] w-full lg:w-[45%] justify-around items-center flex flex-wrap'
                 >
                     <div
                         className='flex flex-col justify-center items-center'
                     >
                         <img
-                            className=' h-[180px] w-[180px] rounded-full border-primary border-2 mt-5 object-fill'
+                            className='h-[120px] w-[120px] lg:h-[180px] lg:w-[180px] rounded-full border-primary border-2 mt-5 object-fill'
                             src={IMAGE.advhay}
                         />
                         <h1
-                            className=' font-bold'
+                            className=' text-sm lg:text-base font-bold'
                         >
                             Dr.Shri.Advhay Hirey - Patil
                         </h1>
@@ -58,11 +61,11 @@ export default function Home() {
                         className='flex flex-col justify-center items-center'
                     >
                         <img
-                            className=' h-[180px] w-[180px] rounded-full border-primary border-2 mt-5 object-fill'
+                            className='h-[120px] w-[120px] lg:h-[180px] lg:w-[180px] rounded-full border-primary border-2 mt-5 object-fill'
                             src={IMAGE.bhaskar}
                         />
                         <h1
-                            className=' font-bold'
+                            className=' text-sm lg:text-base font-bold'
                         >
                             Shri.Bhaskarao Bankar
                         </h1>
@@ -74,11 +77,11 @@ export default function Home() {
                         className='flex  flex-col justify-center items-center'
                     >
                         <img
-                            className=' h-[180px] w-[180px] rounded-full border-primary border-2 mt-5 object-fill'
+                            className='h-[120px] w-[120px] lg:h-[180px] lg:w-[180px] rounded-full border-primary border-2 mt-5 object-fill'
                             src={IMAGE.dilip}
                         />
                         <h1
-                            className='font-bold'
+                            className=' text-sm lg:text-base font-bold'
                         >
                             Shri.Dilip Gadekar
                         </h1>
@@ -88,7 +91,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div
-                    className=' bg-white h-[100%] w-[70%] px-20 space-y-5 pt-10'
+                    className=' bg-white h-[100%] w-full lg:w-[70%] px-5 lg:px-20 space-y-5 pt-10'
                 >
                     <h1
                         className='uppercase text-2xl font-Poppins font-black  tracking-wider'
@@ -108,15 +111,56 @@ export default function Home() {
                         Read More
                     </button>
                     <div
-                        className='flex  justify-evenly ml-[180px] -mt-[150px] items-start'
+                        className='flex  justify-evenly lg:ml-[180px] -mt-[150px] items-start'
                     >
                         <img
-                            className='h-[350px]'
+                            className='lg:h-[350px] w-full'
                             src={IMAGE.agriculture}
                         />
                     </div>
                 </div>
             </div>
+            <div
+                className='w-full flex flex-col lg:h-[600px] bg-background items-center'>
+                <h1
+                    className='pt-5 font-Poppins text-primary font-black text-3xl tracking-widest'
+                >
+                    Products
+                </h1>
+                <div className='flex flex-wrap justify-evenly w-full mt-10'>
+                    {
+                        data.map((item, index) => (
+                            <div
+                                className='flex flex-col justify-center items-center'
+                            >
+                                <button
+                                    className='bg-black h-[120px] w-[120px] rounded-full'
+                                >
+
+                                </button>
+                                <h1
+                                    className='font-Poppins text-primary font-black text-base tracking-wider'
+                                >
+                                    Fertilizer Department
+                                </h1>
+                            </div>
+                        ))
+                    }
+                </div>
+                <button
+                    onClick={() => {
+                        navigate('/product')
+                    }}
+                    className='bg-primary tracking-widest px-5 py-2 mt-[100px] rounded-sm text-white'>
+                    View  All Products
+                </button>
+            </div>
+            <h1
+                className='py-5 font-Poppins text-primary self-center w-full flex justify-center items-center font-black text-3xl tracking-wider'
+            >
+                Companies
+            </h1>
+            {/* <CustomeCarousel  data={company} /> */}
         </div>
     )
 }

@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from '../Component/Header'
 import { Link } from 'react-router-dom'
 import { IMAGE } from '../Assets/Images'
 import ReactGA from "react-ga"
@@ -10,9 +9,8 @@ export default function Gallery() {
     },[])
     return (
         <div
-            className='w-full justify-start items-center'
+            className='w-full justify-start bg-background h-full items-center'
         >
-            <Header />
             <img
                 src={IMAGE.header}
             />
@@ -40,7 +38,7 @@ export default function Gallery() {
                 </h1>
             </div>
             <div
-                className=' flex flex-wrap justify-evenly items-center my-10'
+                className=' flex flex-wrap justify-evenly items-center py-10'
             >
                 <div
                     className=' border-2 p-2 flex w-[300px] flex-col items-center space-y-2'

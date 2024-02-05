@@ -7,7 +7,7 @@ export default function Header() {
     const [isFixed, setIsFixed] = React.useState(false);
     React.useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 180) { // Adjust the scroll threshold as needed
+            if (window.scrollY > 0) { // Adjust the scroll threshold as needed
                 setIsFixed(true);
             } else {
                 setIsFixed(false);
@@ -26,7 +26,7 @@ export default function Header() {
         <div>
             {/* Small Header */}
             <div
-                className=' bg-black h-[40px] w-full flex justify-center items-center'>
+                className=' bg-black h-[40px] w-full hidden lg:flex justify-center items-center'>
                 <div
                     className='flex space-x-2 justify-center items-center'
                 >
@@ -50,7 +50,7 @@ export default function Header() {
             </div>
             {/* Big Header */}
             <div
-                className=' bg-white h-[150px] w-full flex justify-evenly items-center'
+                className=' bg-white h-[150px] w-full hidden lg:flex justify-evenly items-center'
             >
                 <div
                     className='flex justify-start items-center '
@@ -88,7 +88,7 @@ export default function Header() {
             </div>
             {/* Nav Bar */}
             <div
-                className={`${isFixed ? 'fixed top-0 z-50 ' : ''} bg-primary h-[42px] w-full flex justify-center items-center`}>
+                className={`${isFixed ? 'fixed top-0 z-50 ' : ''} hidden   bg-primary h-[42px] w-full lg:flex justify-center items-center`}>
                 <div
                     className='w-[50%] flex justify-evenly items-center h-full'>
                     <Link

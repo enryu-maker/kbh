@@ -2,16 +2,37 @@ import { Routes } from "react-router-dom"
 import React from "react";
 import Index from "./Navigation/Index"
 import ReactGA from 'react-ga';
+import Header from "./Component/Header";
+import Footer from "./Component/Footer";
+import { Oval } from "react-loader-spinner";
+import { useDispatch } from "react-redux";
+import { getBanner, getCompany } from "./Store/actions";
 ReactGA.initialize('UA-192891018-1');
 export default function App() {
-  
-  return (
-    <div
-      id="google_translate_element"
-    >
-      <Index
-      />
-    </div>
-
-  )
+  const [loading, setLoading] = React.useState(false)
+  const dispatch= useDispatch()
+  React.useEffect(()=>{
+    dispatch(getCompany(setLoading))
+    dispatch(getBanner(setLoading))
+  },[])
+  if (!loading) {
+    return (
+      <div>
+        <Header />
+        <Index />
+        <Footer />
+      </div>
+    )
+  }
+  else {
+    return (
+      <div className="h-[100vh] w-full flex justify-center items-center">
+        <Oval
+        height={50}
+        width={50}
+        color="#215037"
+        />
+      </div>
+    )
+  }
 }

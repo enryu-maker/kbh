@@ -12,7 +12,6 @@ export default function Who() {
         <div
             className='w-full justify-center items-center'
         >
-            <Header />
             <img
                 src={IMAGE.header}
             />

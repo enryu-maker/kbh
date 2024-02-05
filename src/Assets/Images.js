@@ -7,6 +7,5 @@ export const IMAGE = {
     bhaskar:require("./Images/bhaskar.png"),
     advhay:require("./Images/Advhay.png"),
     header:require("./Images/header.jpg"),
-
-
+    footer:require("./Images/Footer.png"),
 }
