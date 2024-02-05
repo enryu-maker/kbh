@@ -89,6 +89,9 @@ export default function Footer() {
                 &copy; {new Date().getFullYear()} KBH Jillha Krushi Sangh Nashik
             </p>
             <img
+                onClick={()=>{
+                    window.open("https://nerdtech.in")
+                }}
                 alt='nerdtech'
                 className='lg:w-[35%] w-full h-auto'
                 src={IMAGE.footer}

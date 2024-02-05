@@ -13,7 +13,7 @@ export default function Home() {
         window.scrollTo({
             top: 0,
             behavior: "smooth"
-          })
+        })
         ReactGA.pageview(window.location.pathname + window.location.search);
     }, [])
     const company = useSelector(state => state.Reducers.company)
@@ -57,10 +57,11 @@ export default function Home() {
                     {
                         community?.map((item, index) => (
                             <div
+                                key={index}
                                 className='flex flex-col justify-center items-center'
                             >
                                 <img
-                                alt='people'
+                                    alt='people'
                                     className='h-[120px] w-[120px] lg:h-[180px] lg:w-[180px] rounded-full border-primary border-2 mt-5 object-fill'
                                     src={URLS.imageurl + item?.persons[0]?.image}
                                 />
@@ -70,7 +71,7 @@ export default function Home() {
                                     {item?.persons[0]?.name}
                                 </h1>
                                 <h1
-                                className=' capitalize'
+                                    className=' capitalize'
                                 >
                                     {item?.designation_name}
                                 </h1>
@@ -128,11 +129,11 @@ export default function Home() {
                         home?.map((item, index) => (
                             <button
                                 key={index}
-                                onClick={()=>{
-                                    navigate(`/info/${item?.product_name}`,{
-                                        state:{
+                                onClick={() => {
+                                    navigate(`/info/${item?.product_name}`, {
+                                        state: {
                                             productInfo: item
-                                            }
+                                        }
                                     })
                                 }}
                                 className='flex flex-col w-[50%] lg:w-auto justify-center items-center my-1'
@@ -188,7 +189,6 @@ export default function Home() {
                     }
                 </div>
             </div>
-            {/* <CustomeCarousel  data={company} /> */}
         </div>
     )
 }
