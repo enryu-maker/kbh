@@ -4,6 +4,7 @@ import { IMAGE } from '../Assets/Images'
 import ReactGA from "react-ga"
 import { useSelector } from 'react-redux'
 import { URLS } from '../Helper/Helper'
+import { Helmet } from 'react-helmet'
 
 export default function About() {
     React.useEffect(() => {
@@ -11,20 +12,29 @@ export default function About() {
         window.scrollTo({
             top: 0,
             behavior: "smooth"
-          })
+        })
     }, [])
     const about = useSelector(state => state.Reducers.about)
     return (
         <div
             className='w-full justify-start bg-background items-center'
         >
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>
+                    Our Agricultural Commitment: KARMAVEER BHAUSAHEB HIRAY NASHIK JILLHA KRISHI AUDYOGIK SAHAKARI SANGH LTD NASHIK Advocates for Farmer Prosperity
+                </title>
+                <description>
+                    Learn about KARMAVEER BHAUSAHEB HIRAY NASHIK JILLHA KRISHI AUDYOGIK SAHAKARI SANGH LTD NASHIK's unwavering commitment to supporting farmers. From our mission to our team, delve into the values that drive us to provide top-quality fertilizers, robust steel, and essential tools. Join us in nurturing a thriving farming community.
+                </description>
+            </Helmet>
             <img
                 src={IMAGE.header}
                 alt='head'
                 className='h-[200px] lg:h-auto w-auto object-cover lg:object-contain'
             />
             <div
-        className='pl-5 lg:pl-10 flex self-center py-5 font-Poppins items-center text-sm space-x-2'>
+                className='pl-5 lg:pl-10 flex self-center py-5 font-Poppins items-center text-sm space-x-2'>
                 <Link
                     className=' hover:text-primary'
                     to={'/'}

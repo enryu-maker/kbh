@@ -2,6 +2,7 @@ import ReactGA from "react-ga"
 import React from 'react'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IMAGE } from "../Assets/Images";
+import { Helmet } from "react-helmet";
 
 export default function ProductInfo() {
   React.useEffect(() => {
@@ -17,6 +18,15 @@ export default function ProductInfo() {
     <div
       className='w-full justify-start bg-background h-full items-center'
     >
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>
+          Quality Agricultural Solutions: Fertilizers, Steel, and Tools | KARMAVEER BHAUSAHEB HIRAY NASHIK JILLHA KRISHI AUDYOGIK SAHAKARI SANGH LTD NASHIK
+        </title>
+        <description>
+          Discover a diverse range of agricultural products on KARMAVEER BHAUSAHEB HIRAY NASHIK JILLHA KRISHI AUDYOGIK SAHAKARI SANGH LTD NASHIK. Explore our selection of high-quality fertilizers, robust steel equipment, and essential tools designed to elevate your farming experience. Trust in our government-backed platform for reliable solutions.
+        </description>
+      </Helmet>
       <img
         src={IMAGE.header}
         alt='head'

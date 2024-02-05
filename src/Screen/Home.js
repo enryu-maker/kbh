@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import ReactGA from "react-ga"
 import { useSelector } from 'react-redux';
 import { URLS } from '../Helper/Helper';
-
+import { Helmet } from 'react-helmet';
 export default function Home() {
     const navigate = useNavigate()
     React.useEffect(() => {
@@ -25,6 +25,16 @@ export default function Home() {
         <div
             className='w-full justify-start items-center'
         >
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>
+                    Cultivating Success: Your Premier Source for Agricultural Excellence | KARMAVEER BHAUSAHEB HIRAY NASHIK JILLHA KRISHI AUDYOGIK SAHAKARI SANGH LTD NASHIK
+                </title>
+                <description>
+                    Welcome to KARMAVEER BHAUSAHEB HIRAY NASHIK JILLHA KRISHI AUDYOGIK SAHAKARI SANGH LTD NASHIK, your go-to destination for premium agricultural products. Discover a wide range of fertilizers, robust steel, and essential tools that empower farmers. Explore our site and join us in cultivating a brighter future for agriculture
+                </description>
+            </Helmet>
+
             <Carousel
                 infiniteLoop
                 autoPlay

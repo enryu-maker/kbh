@@ -3,12 +3,13 @@ import { Link, useNavigate } from 'react-router-dom'
 import { IMAGE } from '../Assets/Images'
 import ReactGA from "react-ga"
 import { useSelector } from 'react-redux'
+import { Helmet } from 'react-helmet'
 export default function Product() {
     React.useEffect(() => {
         window.scrollTo({
             top: 0,
             behavior: "smooth"
-          })
+        })
         ReactGA.pageview(window.location.pathname + window.location.search);
     }, [])
     const navigate = useNavigate()
@@ -17,13 +18,22 @@ export default function Product() {
         <div
             className='w-full justify-start bg-background h-full items-center'
         >
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>
+                    Quality Agricultural Solutions: Fertilizers, Steel, and Tools | KARMAVEER BHAUSAHEB HIRAY NASHIK JILLHA KRISHI AUDYOGIK SAHAKARI SANGH LTD NASHIK
+                </title>
+                <description>
+                    Discover a diverse range of agricultural products on KARMAVEER BHAUSAHEB HIRAY NASHIK JILLHA KRISHI AUDYOGIK SAHAKARI SANGH LTD NASHIK. Explore our selection of high-quality fertilizers, robust steel equipment, and essential tools designed to elevate your farming experience. Trust in our government-backed platform for reliable solutions.
+                </description>
+            </Helmet>
             <img
                 src={IMAGE.header}
                 alt='head'
                 className='h-[200px] lg:h-auto w-auto object-cover lg:object-contain'
             />
             <div
-        className='pl-5 lg:pl-10 flex self-center py-5 font-Poppins items-center text-sm space-x-2'>
+                className='pl-5 lg:pl-10 flex self-center py-5 font-Poppins items-center text-sm space-x-2'>
                 <Link
                     className=' hover:text-primary'
                     to={'/'}
@@ -60,11 +70,11 @@ export default function Product() {
                                     item?.products?.map((item, index) => (
                                         <button
                                             key={index}
-                                            onClick={()=>{
-                                                navigate(`/info/${item?.product_name}`,{
-                                                    state:{
+                                            onClick={() => {
+                                                navigate(`/info/${item?.product_name}`, {
+                                                    state: {
                                                         productInfo: item
-                                                        }
+                                                    }
                                                 })
                                             }}
                                             className='flex flex-col w-[50%] lg:w-auto justify-center items-center my-1'
@@ -87,7 +97,6 @@ export default function Product() {
                     ))
                 }
             </div>
-
         </div>
     )
 }

@@ -3,25 +3,35 @@ import { Link } from 'react-router-dom'
 import { IMAGE } from '../Assets/Images'
 import ReactGA from "react-ga"
 import { MdOutlineWatchLater } from "react-icons/md";
+import { Helmet } from 'react-helmet';
 export default function Contact() {
     React.useEffect(() => {
         window.scrollTo({
             top: 0,
             behavior: "smooth"
-          })
+        })
         ReactGA.pageview(window.location.pathname + window.location.search);
     }, [])
     return (
         <div
             className='w-full justify-start bg-background h-full items-center'
         >
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>
+                    Connect with KARMAVEER BHAUSAHEB HIRAY NASHIK JILLHA KRISHI AUDYOGIK SAHAKARI SANGH LTD NASHIK: Reach Out for Agricultural Solutions
+                </title>
+                <description>
+                    Have questions or need assistance? Contact KARMAVEER BHAUSAHEB HIRAY NASHIK JILLHA KRISHI AUDYOGIK SAHAKARI SANGH LTD NASHIK for all your agricultural needs. Our team is ready to provide information on fertilizers, steel, and tools, ensuring you have the support necessary for a thriving farming experience.
+                </description>
+            </Helmet>
             <img
                 src={IMAGE.header}
                 alt='head'
                 className='h-[200px] lg:h-auto w-auto object-cover lg:object-contain'
             />
             <div
-        className='pl-5 lg:pl-10 flex self-center py-5 font-Poppins items-center text-sm space-x-2'>
+                className='pl-5 lg:pl-10 flex self-center py-5 font-Poppins items-center text-sm space-x-2'>
                 <Link
                     className=' hover:text-primary'
                     to={'/'}

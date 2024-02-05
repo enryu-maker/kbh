@@ -4,6 +4,7 @@ import { IMAGE } from '../Assets/Images'
 import ReactGA from 'react-ga';
 import { useSelector } from 'react-redux';
 import { URLS } from '../Helper/Helper';
+import { Helmet } from 'react-helmet';
 
 export default function Who() {
     React.useEffect(() => {
@@ -18,6 +19,15 @@ export default function Who() {
         <div
             className='w-full bg-background justify-center items-center'
         >
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>
+                    Leadership and Visionaries: Meet the Team at KARMAVEER BHAUSAHEB HIRAY NASHIK JILLHA KRISHI AUDYOGIK SAHAKARI SANGH LTD NASHIK
+                </title>
+                <description>
+                    Explore the brilliance behind KARMAVEER BHAUSAHEB HIRAY NASHIK JILLHA KRISHI AUDYOGIK SAHAKARI SANGH LTD NASHIK. Get to know the dedicated individuals steering our commitment to agricultural excellence. Meet the visionaries shaping the future of farming and driving positive change in the community.
+                </description>
+            </Helmet>
             <img
                 src={IMAGE.header}
                 alt='head'
