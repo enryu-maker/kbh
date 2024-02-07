@@ -7,6 +7,7 @@ import ReactGA from "react-ga"
 import { useSelector } from 'react-redux';
 import { URLS } from '../Helper/Helper';
 import { Helmet } from 'react-helmet';
+import Marquee from "react-fast-marquee";
 export default function Home() {
     const navigate = useNavigate()
     React.useEffect(() => {
@@ -19,11 +20,11 @@ export default function Home() {
     const company = useSelector(state => state.Reducers.company)
     const banner = useSelector(state => state.Reducers.banner)
     const community = useSelector(state => state.Reducers.community)
-    const about = useSelector(state => state.Reducers.about)
+    const mini = useSelector(state => state.Reducers.mini)
     const home = useSelector(state => state.Reducers.home)
     return (
         <div
-            className='w-full justify-start items-center'
+            className='w-full justify-start bg-background items-center'
         >
             <Helmet>
                 <meta charSet="utf-8" />
@@ -59,8 +60,13 @@ export default function Home() {
                     }
                 </>
             </Carousel>
+            <h1
+                className='text-3xl font-Poppins font-black bg-background py-2 self-center w-full flex items-center justify-center text-primary  tracking-wider'
+            >
+                About Organization
+            </h1>
             <div
-                className='w-full flex lg:h-[600px] lg:flex-row flex-col justify-center lg:justify-between items-start'>
+                className='w-full flex  lg:flex-row flex-col justify-center lg:justify-between items-start'>
                 <div
                     className='h-[100%] w-full lg:w-[45%] bg-background justify-around items-center flex flex-wrap'
                 >
@@ -72,7 +78,7 @@ export default function Home() {
                             >
                                 <img
                                     alt='people'
-                                    className='h-[120px] w-[120px] lg:h-[180px] lg:w-[180px] rounded-full border-primary border-2 mt-5 object-fill'
+                                    className='h-[120px] w-[120px] lg:h-[180px] lg:w-[180px] rounded-full  border-2 mt-5 object-fill'
                                     src={URLS.imageurl + item?.persons[0]?.image}
                                 />
                                 <h1
@@ -99,15 +105,11 @@ export default function Home() {
                 <div
                     className=' bg-background h-[100%] w-full lg:w-[70%] px-5 lg:px-20 space-y-5 pt-10'
                 >
-                    <h1
-                        className='text-3xl font-Poppins font-black text-primary  tracking-wider'
-                    >
-                        About Organization
-                    </h1>
+
                     <p
                         className=' text-base font-Poppins text-justify'
                     >
-                        {about[0]?.description.slice(0, 400)}
+                        {mini[0]?.mini_description}
                     </p>
                     <button
                         onClick={() => {
@@ -120,7 +122,7 @@ export default function Home() {
                         className='flex  justify-evenly lg:ml-[180px] -mt-[150px] items-start'
                     >
                         <img
-                            className='lg:h-[350px] w-full'
+                            className='lg:h-[400px] w-full'
                             src={IMAGE.agriculture}
                             alt='banner'
                         />
@@ -149,9 +151,9 @@ export default function Home() {
                                 className='flex flex-col w-[50%] lg:w-auto justify-center items-center my-1'
                             >
                                 <img
-                                    src={URLS.imageurl + item?.icon}
+                                    src={URLS.imageurl + item?.image}
                                     alt={item?.product_name}
-                                    className='h-[120px] w-[120px] rounded-full object-cover border-2 border-primary'
+                                    className='h-[120px] w-[120px] rounded-full object-cover border-2 '
                                 />
                                 <h1
                                     className=' capitalize font-Poppins self-center text-center text-primary font-black text-base tracking-wider'
@@ -177,27 +179,31 @@ export default function Home() {
                 >
                     Companies
                 </h1>
-                <div className='flex flex-wrap justify-evenly w-full mt-10'>
-                    {
-                        company?.map((item, index) => (
-                            <button
-                                key={index}
-                                className='flex flex-col w-[50%] lg:w-auto justify-center items-center my-1'
-                            >
-                                <img
-                                    src={URLS.imageurl + item?.image}
-                                    alt={item?.product_name}
-                                    className='h-[120px] w-[120px] rounded-full border-2 object-cover border-primary'
-                                />
-                                <h1
-                                    className=' capitalize font-Poppins self-center text-center text-primary font-black text-base tracking-wider'
+                <Marquee >
+                    <div
+                        className='flex justify-center items-start mt-5'
+                    >
+                        {
+                            company?.map((item, index) => (
+                                <button
+                                    key={index}
+                                    className='flex flex-col w-[50%]  lg:w-[200px] justify-center items-center my-1'
                                 >
-                                    {item?.name}
-                                </h1>
-                            </button>
-                        ))
-                    }
-                </div>
+                                    <img
+                                        src={URLS.imageurl + item?.image}
+                                        alt={item?.product_name}
+                                        className='h-[120px] w-[120px] rounded-full border-2 object-cover '
+                                    />
+                                    <h1
+                                        className=' capitalize font-Poppins self-center text-center text-primary font-black text-xs tracking-wider'
+                                    >
+                                        {item?.name}
+                                    </h1>
+                                </button>
+                            ))
+                        }
+                    </div>
+                </Marquee>
             </div>
         </div>
     )

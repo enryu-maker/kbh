@@ -11,7 +11,7 @@ export default function Header() {
     const logo = useSelector(state => state.Reducers.logo)
     React.useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 180) { // Adjust the scroll threshold as needed
+            if (window.scrollY > 150) { // Adjust the scroll threshold as needed
                 setIsFixed(true);
             } else {
                 setIsFixed(false);
@@ -29,7 +29,7 @@ export default function Header() {
     return (
         <div>
             {/* Small Header */}
-            <div
+            {/* <div
                 className=' bg-black h-[40px] w-full hidden lg:flex justify-center items-center'>
                 <div
                     className='flex space-x-2 justify-center items-center'
@@ -51,7 +51,7 @@ export default function Header() {
                         color='#fff'
                     />
                 </div>
-            </div>
+            </div> */}
             {/* Big Header */}
             <div
                 className=' bg-white h-[150px] w-full hidden lg:flex justify-evenly items-center'

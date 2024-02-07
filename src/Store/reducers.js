@@ -6,7 +6,8 @@ const initialState = {
     banner: [],
     community: [],
     home: [],
-    logo: []
+    logo: [],
+    mini: []
 }
 
 export default (state = initialState, action) => {
@@ -15,6 +16,11 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 products: action.payload,
+            };
+        case "MINI":
+            return {
+                ...state,
+                mini: action.payload,
             };
         case "GALLERY":
             return {

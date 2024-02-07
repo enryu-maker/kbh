@@ -4,6 +4,7 @@ import { IMAGE } from '../Assets/Images'
 import ReactGA from "react-ga"
 import { useSelector } from 'react-redux'
 import { Helmet } from 'react-helmet'
+import { URLS } from '../Helper/Helper'
 export default function Product() {
     React.useEffect(() => {
         window.scrollTo({
@@ -80,9 +81,9 @@ export default function Product() {
                                             className='flex flex-col w-[50%] lg:w-auto justify-center items-center my-1'
                                         >
                                             <img
-                                                src={item?.image}
+                                                src={URLS.imageurl + item?.image}
                                                 alt={item?.product_name}
-                                                className='h-[120px] w-[120px] rounded-full border-2 border-primary'
+                                                className='h-[120px] w-[120px] rounded-full border-2 '
                                             />
                                             <h1
                                                 className='font-Poppins self-center text-center text-primary font-black text-base tracking-wider'

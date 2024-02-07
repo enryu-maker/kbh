@@ -51,6 +51,23 @@ export const getAbout = (setLoading) => {
     }
 }
 
+export const getMiniAbout = (setLoading) => {
+    return async dispatch => {
+        setLoading(true);
+        try {
+            let response = await axios.get(URLS.testing + `aboutus/mini-description/`);
+            dispatch({
+                type: 'MINI',
+                payload: response.data,
+            })
+            setLoading(false);
+        } catch (error) {
+            console.log(error);
+            setLoading(false);
+        }
+    }
+}
+
 export const getCompany = (setLoading) => {
     return async dispatch => {
         setLoading(true);
