@@ -17,6 +17,23 @@ export const getProducts = (setLoading) => {
     }
 }
 
+export const getCommunityInfo = (setLoading) => {
+    return async dispatch => {
+        setLoading(true);
+        try {
+            let response = await axios.get(URLS.testing + `person/who-is-who/`);
+            dispatch({
+                type: 'WHO',
+                payload: response.data,
+            })
+            setLoading(false);
+        } catch (error) {
+            console.log(error);
+            setLoading(false);
+        }
+    }
+}
+
 export const getGallery = (setLoading) => {
     return async dispatch => {
         setLoading(true);

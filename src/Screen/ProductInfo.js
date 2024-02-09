@@ -3,6 +3,7 @@ import React from 'react'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IMAGE } from "../Assets/Images";
 import { Helmet } from "react-helmet";
+import { URLS } from "../Helper/Helper";
 
 export default function ProductInfo() {
   React.useEffect(() => {
@@ -65,6 +66,32 @@ export default function ProductInfo() {
         >
           {state?.productInfo?.product_name}
         </h1>
+      </div>
+      <div
+        className='flex flex-col justify-center items-center'
+      >
+        <div
+          className='border-2  w-[88%] self-center flex items-center justify-between lg:justify-evenly space-x-1  py-2  lg:self-start lg:ml-[6%] my-5'
+        >
+          {state?.productInfo?.description}
+        </div>
+      </div>
+      <div
+        className='flex flex-col justify-center items-center'
+      >
+        {
+          state?.productInfo?.product_images?.map((item, index) => (
+            <div
+              key={index}
+              className='lg:h-[500px] mb-5 self-center h-[400px] w-[88%] border-2 p-2'>
+              <img
+                className='h-full w-full'
+                src={URLS.imageurl + item?.image}
+                alt='productimage'
+              />
+            </div>
+          ))
+        }
       </div>
     </div>
   )

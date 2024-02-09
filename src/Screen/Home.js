@@ -41,24 +41,22 @@ export default function Home() {
                 autoPlay
                 swipeable={true}
                 showThumbs={false}
-                showIndicators={false}
+                showIndicators={true}
                 showArrows={false}
                 showStatus={false}
                 interval={3500}
                 transitionTime={2000}
             >
-                <>
-                    {
-                        banner?.map((item, index) => (
-                            <img
-                                key={index}
-                                alt='banner'
-                                className='w-full h-[250px] lg:h-[500px] object-fill'
-                                src={URLS.imageurl + item?.image}
-                            />
-                        ))
-                    }
-                </>
+                {
+                    banner?.map((item, index) => (
+                        <img
+                            key={index}
+                            alt='banner'
+                            className='w-full h-[250px] lg:h-[500px] object-fill'
+                            src={URLS.imageurl + item?.image}
+                        />
+                    ))
+                }
             </Carousel>
             <h1
                 className='text-3xl font-Poppins font-black bg-background py-2 self-center w-full flex items-center justify-center text-primary  tracking-wider'
@@ -67,41 +65,37 @@ export default function Home() {
             </h1>
             <div
                 className='w-full flex  lg:flex-row flex-col justify-center lg:justify-between items-start'>
-                <div
-                    className='h-[100%] w-full lg:w-[45%] bg-background justify-around items-center flex flex-wrap'
-                >
-                    {
-                        community?.map((item, index) => (
-                            <div
-                                key={index}
-                                className='flex flex-col justify-center items-center'
-                            >
-                                <img
-                                    alt='people'
-                                    className='h-[120px] w-[120px] lg:h-[180px] lg:w-[180px] rounded-full  border-2 mt-5 object-fill'
-                                    src={URLS.imageurl + item?.persons[0]?.image}
-                                />
-                                <h1
-                                    className=' capitalize text-sm lg:text-base font-bold'
-                                >
-                                    {item?.persons[0]?.name}
-                                </h1>
-                                <h1
-                                    className=' capitalize'
-                                >
-                                    {item?.designation_name}
-                                </h1>
-                            </div>
-                        ))
-                    }
-                    <button
-                        onClick={() => {
-                            navigate('/who')
-                        }}
-                        className='bg-primary tracking-widest px-5 py-2 mt-[100px] rounded-sm text-white'>
-                        View Managment
-                    </button>
-                </div>
+                    <div
+                        className='h-[100%] w-full lg:w-[45%] bg-background justify-around items-center flex flex-wrap'
+                    >
+                        {
+                            community?.map((item, index) => {
+                                if (item.designation_name != "Director")
+                                    return (
+                                        <div
+                                            key={index}
+                                            className='flex flex-col justify-center items-center'
+                                        >
+                                            <img
+                                                alt='people'
+                                                className='h-[120px] w-[120px] lg:h-[180px] lg:w-[180px] rounded-full  border-2 mt-5 object-fill'
+                                                src={URLS.imageurl + item?.persons[0]?.image}
+                                            />
+                                            <h1
+                                                className=' capitalize text-sm lg:text-base font-bold'
+                                            >
+                                                {item?.persons[0]?.name}
+                                            </h1>
+                                            <h1
+                                                className=' capitalize'
+                                            >
+                                                {item?.designation_name}
+                                            </h1>
+                                        </div>
+                                    )
+                            })
+                        }
+                    </div>
                 <div
                     className=' bg-background h-[100%] w-full lg:w-[70%] px-5 lg:px-20 space-y-5 pt-10'
                 >

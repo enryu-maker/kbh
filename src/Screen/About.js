@@ -57,13 +57,13 @@ export default function About() {
                 </h1>
             </div>
             <div
-                className='flex self-center py-5 flex-col lg:flex-row justify-evenly items-center  lg:justify-around lg:items-start'>
+                className='flex  py-5 flex-col w-full justify-center items-center  lg:justify-around lg:items-start'>
                 {
                     about?.map((item, index) => (
                         <>
                             <div
                                 key={index}
-                                className='lg:h-[500px] h-[400px] lg:w-[30%] w-[88%] border-2 p-2'>
+                                className='lg:h-[500px] self-center h-[400px] w-[88%] border-2 p-2'>
                                 <img
                                     className='h-full w-full'
                                     src={URLS.imageurl + item?.image}
@@ -71,7 +71,7 @@ export default function About() {
                                 />
                             </div>
                             <p
-                                className='lg:w-[55%] w-[88%] text-justify mt-2'
+                                className='lg:w-[55%] w-[88%] self-center  text-justify mt-2'
                             >
                                 {item?.description}
                             </p>

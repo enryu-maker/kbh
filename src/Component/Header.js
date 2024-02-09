@@ -60,7 +60,7 @@ export default function Header() {
                     className='flex justify-start items-center '
                 >
                     <img
-                                alt='icon'
+                        alt='icon'
                         className=' h-[130px] w-[130px]'
                         src={IMAGE.icon}
                     />
@@ -68,7 +68,7 @@ export default function Header() {
                         <h1
                             className='uppercase text-sm font-Poppins font-black pl-3 tracking-wider'
                         >
-                            कर्मवीर भाऊसाहेब हिरे नाशिक जिल्ला
+                            कर्मवीर भाऊसाहेब हिरे नाशिक जिल्हा
                             कृषी औद्योगिक सहकारी संघ लिमिटेड नाशिक
                         </h1>
                         <h1
@@ -125,6 +125,12 @@ export default function Header() {
                         className=' text-white font-Poppins text-sm tracking-widest'
                     >
                         GALLERY
+                    </Link>
+                    <Link
+                        to={'/who'}
+                        className=' text-white font-Poppins text-sm tracking-widest'
+                    >
+                        DIRECTOR BOARD
                     </Link>
                     <Link
                         to={"/contact"}
@@ -200,6 +206,13 @@ export default function Header() {
                                 className=' text-black font-Poppins text-sm tracking-widest'
                             >
                                 GALLERY
+                            </Link>
+                            <Link
+                                to={'/who'}
+                                onClick={() => setShow(false)}
+                                className=' text-black font-Poppins text-sm tracking-widest'
+                            >
+                                DIRECTOR BOARD
                             </Link>
                             <Link
                                 to={"/contact"}

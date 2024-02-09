@@ -7,7 +7,8 @@ const initialState = {
     community: [],
     home: [],
     logo: [],
-    mini: []
+    mini: [],
+    who: []
 }
 
 export default (state = initialState, action) => {
@@ -56,6 +57,11 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 logo: action.payload,
+            };
+        case "WHO":
+            return {
+                ...state,
+                who: action.payload,
             };
         default:
             return state;

@@ -5,7 +5,7 @@ import Header from "./Component/Header";
 import Footer from "./Component/Footer";
 import { Oval } from "react-loader-spinner";
 import { useDispatch } from "react-redux";
-import { getAbout, getBanner, getHeaderLogo, getCommunity, getCompany, getGallery, getHomeProduct, getProducts, getMiniAbout } from "./Store/actions";
+import { getAbout, getBanner, getCommunityInfo, getHeaderLogo, getCommunity, getCompany, getGallery, getHomeProduct, getProducts, getMiniAbout } from "./Store/actions";
 ReactGA.initialize('UA-192891018-1');
 export default function App() {
   const [loading, setLoading] = React.useState(false)
@@ -20,6 +20,7 @@ export default function App() {
     dispatch(getHomeProduct(setLoading))
     dispatch(getHeaderLogo(setLoading))
     dispatch(getMiniAbout(setLoading))
+    dispatch(getCommunityInfo(setLoading))
 
   }, [dispatch])
   if (!loading) {

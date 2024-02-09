@@ -14,7 +14,8 @@ export default function Who() {
         })
         ReactGA.pageview(window.location.pathname + window.location.search);
     }, [])
-    const community = useSelector(state => state.Reducers.community)
+    const who = useSelector(state => state.Reducers.who)
+    const director = who?.data?.find(el=>el.designation_name === "Director")
     return (
         <div
             className='w-full bg-background justify-center items-center'
@@ -49,30 +50,69 @@ export default function Who() {
                 </h1>
             </div>
             <div
+                className='flex self-center mt-5  justify-center items-center'>
+                <h1
+                    className='font-Poppins text-primary font-black text-2xl lg:text-3xl text-center'
+                >
+                    {who.title}
+                </h1>
+            </div>
+            <div
                 className='h-[100%] w-full  py-5 bg-background justify-evenly items-center flex flex-wrap'
             >
                 {
-                    community?.map((item, index) => (
-                        <div
-                            className='flex flex-col justify-center items-center'
-                        >
-                            <img
-                                className='h-[120px] w-[120px] lg:h-[180px] lg:w-[180px] rounded-full border-primary border-2 mt-5 object-fill'
-                                src={URLS.imageurl + item?.persons[0]?.image}
-                                alt='banner'
-                            />
-                            <h1
-                                className=' capitalize text-sm lg:text-base font-bold'
-                            >
-                                {item?.persons[0]?.name}
-                            </h1>
-                            <h1
-                                className=' capitalize'
-                            >
-                                {item?.designation_name}
-                            </h1>
-                        </div>
-                    ))
+                    who?.data?.map((item, index) => {
+                        if (item.designation_name != "Director")
+                            return (
+                                <div
+                                    className='flex flex-col justify-center items-center'
+                                >
+                                    <img
+                                        className='h-[120px] w-[120px] lg:h-[180px] lg:w-[180px] rounded-full border-primary border-2 mt-5 object-fill'
+                                        src={URLS.imageurl + item?.persons[0]?.image}
+                                        alt='banner'
+                                    />
+                                    <h1
+                                        className=' capitalize text-sm lg:text-base font-bold'
+                                    >
+                                        {item?.persons[0]?.name}
+                                    </h1>
+                                    <h1
+                                        className=' capitalize'
+                                    >
+                                        {item?.designation_name}
+                                    </h1>
+                                </div>
+                            )
+                    })
+                }
+            </div>
+            <div
+                className='h-[100%] w-full  py-5 bg-background justify-evenly items-center flex flex-wrap'
+            >
+                {
+                    director?.persons?.map((item, index) => (
+                                <div
+                                    className='flex flex-col justify-center items-center lg:w-[20%]'
+                                >
+                                    <img
+                                        className='h-[120px] w-[120px] lg:h-[180px] lg:w-[180px] rounded-full border-primary border-2 mt-5 object-fill'
+                                        src={URLS.imageurl + item?.image}
+                                        alt='banner'
+                                    />
+                                    <h1
+                                        className=' capitalize text-sm lg:text-base font-bold'
+                                    >
+                                        {item?.name}
+                                    </h1>
+                                    <h1
+                                        className=' capitalize'
+                                    >
+                                        Director
+                                    </h1>
+                                </div>
+                            )
+                    )
                 }
             </div>
         </div>
